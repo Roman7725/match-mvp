@@ -19,5 +19,10 @@ jobs:
 
       - name: Force Build Android Project
         run: |
+          if [ -f "MatchMVP/settings.gradle.kts" ]; then
+            cd MatchMVP
+          elif [ -f "match-mvp/settings.gradle.kts" ]; then
+            cd match-mvp
+          fi
           gradle wrapper --gradle-version 8.5
           gradle assembleDebug --stacktrace
